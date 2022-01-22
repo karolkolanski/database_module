@@ -14,9 +14,17 @@ class DatabaseConnector:
             print("Connection extablished successfully")
         except:
             raise RuntimeError("Cannot connect to the database")
+
+    def select_all_agents(self):
+        self.cursor.execute("SELECT * from agenci")
+        result = self.cursor.fetchall()
+        return result
+
+
     def __del__(self):
         self.mydb.close()
         print("Connection closed")
 
-db = DatabaseConnector()
+if __name__ == "__main__":
+    db = DatabaseConnector()
 
