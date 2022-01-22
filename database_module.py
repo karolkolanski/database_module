@@ -20,6 +20,10 @@ class DatabaseConnector:
         result = self.cursor.fetchall()
         return result
 
+    def get_number_of_agents(self):
+        ### UZUPEŁNIĆ
+        pass
+
 
     def __del__(self):
         self.mydb.close()
