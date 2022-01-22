@@ -16,19 +16,21 @@ class DatabaseConnector:
             raise RuntimeError("Cannot connect to the database")
 
     def select_all_agents(self):
-        self.cursor.execute("SELECT * from agenci")
+        self.cursor.execute("SELECT * from agenci;")
         result = self.cursor.fetchall()
         return result
 
     def get_number_of_agents(self):
-        ### UZUPEŁNIĆ
-        pass
+        self.cursor.execute("select COUNT(*) from agenci;")
+        result = self.cursor.fetchone()
+        return result[0]
 
 
     def __del__(self):
         self.mydb.close()
         print("Connection closed")
 
+# Czy uruchomiłem program z tego pliku?
 if __name__ == "__main__":
     db = DatabaseConnector()
 
