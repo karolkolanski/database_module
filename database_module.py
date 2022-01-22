@@ -20,11 +20,10 @@ class DatabaseConnector:
         result = self.cursor.fetchall()
         return result
 
-    def get_number_of_agents(self):
+    def select_number_of_agents(self):
         self.cursor.execute("select COUNT(*) from agenci;")
         result = self.cursor.fetchone()
         return result[0]
-
 
     def __del__(self):
         self.mydb.close()
