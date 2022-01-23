@@ -25,9 +25,14 @@ class DatabaseConnector:
         result = self.cursor.fetchone()
         return result[0]
 
-    # TODO
     def select_all_agents_names(self):
-        pass
+        self.cursor.execute("select agentname from agenci;")
+        db_result = self.cursor.fetchall()
+        result = []
+        for r in db_result:
+            result.append(r[0])
+        return result
+
     # TODO
     def add_new_agent(self, id, name, licence_date):
         pass
