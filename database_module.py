@@ -1,4 +1,5 @@
 import mysql.connector
+import datetime
 
 class DatabaseConnector:
     def __init__(self, address="localhost", username="root", password="automaty", database_name="alk"):
@@ -37,6 +38,7 @@ class DatabaseConnector:
         query = f"INSERT INTO agenci VALUES ({id}, '{name}', '{licence_date}');"
         self.cursor.execute(query)
         self.mydb.commit()
+        assert self.cursor.rowcount == 1
 
 
     def __del__(self):
