@@ -33,9 +33,11 @@ class DatabaseConnector:
             result.append(r[0])
         return result
 
-    # TODO
     def add_new_agent(self, id, name, licence_date):
-        pass
+        query = f"INSERT INTO agenci VALUES ({id}, '{name}', '{licence_date}');"
+        self.cursor.execute(query)
+        self.mydb.commit()
+
 
     def __del__(self):
         self.mydb.close()
