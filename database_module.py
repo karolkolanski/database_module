@@ -25,6 +25,13 @@ class DatabaseConnector:
         result = self.cursor.fetchone()
         return result[0]
 
+    # TODO
+    def select_all_agents_names(self):
+        pass
+    # TODO
+    def add_new_agent(self, id, name, licence_date):
+        pass
+
     def __del__(self):
         self.mydb.close()
         print("Connection closed")
